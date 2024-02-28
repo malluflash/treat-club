@@ -23,6 +23,13 @@ const Header = () => {
   );
 };
 
+const Body = () => {
+  return(
+    <div></div>
+  );
+};
+
+
 const AppLayout = () => {
   return (
     <div className="app-layout">
