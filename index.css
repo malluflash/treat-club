@@ -30,14 +30,18 @@
 .res-card {
     margin: 20px;
     width: 250px;
+    height: 500px;
     padding: 2px;
     border: 2px solid grey;
     box-shadow: black;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 12px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .res-card:hover {
-    border: 2px solid darkgoldenrod;
+    border: 2px solid rgb(48, 48, 47);
 }
 
 .search {
@@ -58,4 +62,62 @@
 .filter-btn {
     margin: 10px;
     cursor: pointer;
+}
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-card {
+    margin: 20px;
+    width: 250px;
+    height: 500px;
+    padding: 3px;
+    background-color: #f0f0f0;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 12px;
+}
+
+.shimmer-img-card {
+    margin: 6px;
+    height: 230px;
+    background-color: #d3d2d2;
+    display: flex;
+    margin-bottom: 80px;
+    border-radius: 12px;
+}
+
+.shimmer-text-card {
+    padding: 10px;
+    margin: 6px;
+    height: 18px;
+    background-color: #d3d2d2;
+    display: flex;
+    border-radius: 12px;
+}
+
+.shimmer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+ 
+    background: linear-gradient(100deg,
+    rgba(255,255,255,0) 20%,
+    rgba(255,255,255,0.5) 50%,
+    rgba(255,255,255,0) 80%);
+ 
+    animation: shimmer 2s infinite linear;
+}
+ 
+@keyframes shimmer {
+    from {
+        transform: translateX(-200%);
+    }
+    to{
+        transform: translateX(200%);
+    }
 }
