@@ -22,7 +22,7 @@
     font: 1em sans-serif;
     padding: 30px;
     font-weight: 100;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bolder;
 }
 
@@ -32,14 +32,28 @@
     width: 300px;
     height: 600px;
     padding: 2px;
-    border: 2px solid grey;
-    box-shadow: black;
     box-sizing: border-box;
     position: relative;
     border-radius: 12px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #f0f0f0;
+    cursor: pointer;
 }
 
+.res-card > h3 {
+    padding: 6px;
+    font-weight: bolder;
+}
+
+.res-card > h4 {
+    padding: 6px;
+    font-weight: 300;
+}
+
+.res-card > h5 {
+    padding: 6px;
+    font-weight: 150;
+}
 .res-card:hover {
     border: 2px solid rgb(48, 48, 47);
 }
@@ -50,8 +64,12 @@
 }
 
 .res-img {
-    width: 100%;
-    padding: auto;
+    width: 280px;
+    height: 250px;
+    margin: 6px 6px;
+    border-radius: 12px;
+    border: #bbb6b6 solid 1px;
+    align-self: center;
 }
 
 .res-container {
@@ -90,7 +108,7 @@
     height: 250px;
     background-color: #d3d2d2;
     display: flex;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     border-radius: 12px;
 }
 
@@ -125,4 +143,11 @@
     to{
         transform: translateX(200%);
     }
+}
+
+.login {
+    padding: 5 px;
+    cursor: pointer;
+    width: 100px;
+    font-weight: 200;
 }
