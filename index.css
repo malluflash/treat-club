@@ -60,7 +60,6 @@
 
 .search {
     padding: 10px;
-    border: 2px solid black;
 }
 
 .res-img {
@@ -76,7 +75,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    
    
 }
 

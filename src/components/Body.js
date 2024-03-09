@@ -8,6 +8,8 @@ import { SWIGGY_API } from "../Utils/constants";
 const Body = () => {
   // State Variable
   const [resList, setResList] = useState([]);
+  const [filteredRes, setFilteredRes] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -20,8 +22,13 @@ const Body = () => {
 
     console.log(swiggyJson);
     setResList(
-      swiggyJson.data.cards[1].card.card.gridElements.
-      infoWithStyle.restaurants);
+      swiggyJson?.data?.success?.cards[4]?.gridWidget?.gridElements
+        ?.infoWithStyle?.restaurants
+    );
+    setFilteredRes(
+      swiggyJson?.data?.success?.cards[4]?.gridWidget?.gridElements
+        ?.infoWithStyle?.restaurants
+    );
   };
 
   const filteredList = resList.filter((res) => res.info.avgRating > 4.2);
@@ -35,12 +42,31 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
+        <input
+          className="search-box"
+          type="text"
+          value={searchText}
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
+        />
+        <button
+          className="search-btn"
+          onClick={() => {
+            const resSearch = resList.filter((res) =>
+              res.info.name.toLowerCase().includes(searchText.toLowerCase())
+            );
+            setFilteredRes(resSearch);
+          }}
+        >
+          Search
+        </button>
         <button className="filter-btn" onClick={handleClick}>
           Top Restaurants
         </button>
       </div>
       <div className="res-container">
-        {resList.map((res) => (
+        {filteredRes.map((res) => (
           <RestaurantCard key={res.info.id} resData={res} /> // Using keys is very important. Using index as a key is a bad practice. Unique ID is recommended.
         ))}
       </div>
