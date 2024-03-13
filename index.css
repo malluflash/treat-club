@@ -29,7 +29,7 @@
 
 .res-card {
     margin: 20px;
-    width: 300px;
+    width: 260px;
     height: 600px;
     padding: 2px;
     box-sizing: border-box;
@@ -63,7 +63,7 @@
 }
 
 .res-img {
-    width: 280px;
+    width: 240px;
     height: 250px;
     margin: 6px 6px;
     border-radius: 12px;

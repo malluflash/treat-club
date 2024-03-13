@@ -17,16 +17,17 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(SWIGGY_API);
-
+    console.log(data);
     const swiggyJson = await data.json();
 
     console.log(swiggyJson);
+
     setResList(
-      swiggyJson?.data?.success?.cards[4]?.gridWidget?.gridElements
+      swiggyJson?.data?.success?.cards[1]?.gridWidget?.gridElements
         ?.infoWithStyle?.restaurants
     );
     setFilteredRes(
-      swiggyJson?.data?.success?.cards[4]?.gridWidget?.gridElements
+      swiggyJson?.data?.success?.cards[1]?.gridWidget?.gridElements
         ?.infoWithStyle?.restaurants
     );
   };
