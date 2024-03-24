@@ -2,7 +2,7 @@ export const SWIGGY_IMG_CDN = "https://media-assets.swiggy.com/swiggy/image/uplo
 
 export const LOGO_URL = "https://github.com/malluflash/picsDen/raw/main/treat-club-logo";
 
-export const SWIGGY_API = "https://www.swiggy.com/mapi/homepage/getCards?lat=12.961865229894311&lng=77.71057728677988";
+export const SWIGGY_API = "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=12.961865229894311&lng=77.71057728677988&carousel=true&third_party_vendor=1";
 
 
 // Named exports

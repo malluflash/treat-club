@@ -1,9 +1,10 @@
 import React from "react";
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
-// import restaurants from "../Utils/mockData.js";
+import restaurants from "../Utils/mockData.js";
+import swiggyApi from "../Utils/SwiggyRes";
 import Shimmer from "./Shimmer";
-import { SWIGGY_API } from "../Utils/constants";
+// import { SWIGGY_API } from "../Utils/constants";
 
 const Body = () => {
   // State Variable
@@ -11,25 +12,19 @@ const Body = () => {
   const [filteredRes, setFilteredRes] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+
+  
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(SWIGGY_API);
-    console.log(data);
-    const swiggyJson = await data.json();
+    swiggyJson = restaurants;
 
     console.log(swiggyJson);
 
-    setResList(
-      swiggyJson?.data?.success?.cards[1]?.gridWidget?.gridElements
-        ?.infoWithStyle?.restaurants
-    );
-    setFilteredRes(
-      swiggyJson?.data?.success?.cards[1]?.gridWidget?.gridElements
-        ?.infoWithStyle?.restaurants
-    );
+    setResList(swiggyJson);
+    setFilteredRes(swiggyJson);
   };
 
   const filteredList = resList.filter((res) => res.info.avgRating > 4.2);
