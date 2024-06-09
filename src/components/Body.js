@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import restaurants from "../Utils/mockData.js";
 import swiggyApi from "../Utils/SwiggyRes";
 import Shimmer from "./Shimmer";
-// import { SWIGGY_API } from "../Utils/constants";
+import { SWIGGY_API } from "../Utils/constants";
 
 const Body = () => {
   // State Variable
@@ -12,25 +12,32 @@ const Body = () => {
   const [filteredRes, setFilteredRes] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-
-  
   useEffect(() => {
     fetchData();
   }, []);
 
+  // const fetchData = async () => {
+  //   swiggyJson = restaurants;
+
+  //   console.log(swiggyJson);
+
+  //   setResList(swiggyJson);
+  //   setFilteredRes(swiggyJson);
+  // };
+
   const fetchData = async () => {
-    swiggyJson = restaurants;
-
-    console.log(swiggyJson);
-
-    setResList(swiggyJson);
-    setFilteredRes(swiggyJson);
+    const data = await fetch(SWIGGY_API);
+    const swiggyJson = await data.json();
+    const restaurants =
+      swiggyJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants || [];
+    setResList(restaurants);
+    setFilteredRes(restaurants);
   };
 
-  const filteredList = resList.filter((res) => res.info.avgRating > 4.2);
-
-  const handleClick = () => {
-    setResList(filteredList);
+  const handleFilterClick = () => {
+    const topRatedList = resList.filter((res) => res.info.avgRating > 4.3);
+    setFilteredRes(topRatedList);
   };
 
   return resList.length === 0 ? (
@@ -57,7 +64,7 @@ const Body = () => {
         >
           Search
         </button>
-        <button className="filter-btn" onClick={handleClick}>
+        <button className="filter-btn" onClick={handleFilterClick}>
           Top Restaurants
         </button>
       </div>
