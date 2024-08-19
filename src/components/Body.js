@@ -35,6 +35,9 @@ const Body = () => {
     setFilteredRes(restaurants);
   };
 
+  console.log(restaurants);
+
+
   const handleFilterClick = () => {
     const topRatedList = resList.filter((res) => res.info.avgRating > 4.3);
     setFilteredRes(topRatedList);
